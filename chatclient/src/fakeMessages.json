@@ -1,0 +1,18 @@
+[
+    {
+        "user": "Me",
+        "Message": "First message"
+    }, 
+    {
+        "user": "Outside",
+        "Message": "When we meeting  up for drinks?"
+    },
+    {
+        "user": "Amy",
+        "Message": "Whenever y'all ready"
+    },
+    {
+        "user": "Brad",
+        "Message": "Hold up gotta get dressed"
+    }
+]
