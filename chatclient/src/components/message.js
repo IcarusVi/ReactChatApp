@@ -10,8 +10,9 @@ const useStyles = makeStyles({
 
 const Message = ({message}) => {
     const classes = useStyles();
+    let change = message.user === 'Me' ? {textAlign: 'right', marginLeft:'auto'} : {textAlign: 'left'};
     return (
-        <div className="message">
+        <div style={change} className="message">
             {message.user}
             <Paper className={classes.messageText} >
                 {message.Message}

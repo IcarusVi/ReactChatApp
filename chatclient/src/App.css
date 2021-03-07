@@ -1,4 +1,6 @@
 .message{
   height:80px;
-  width: 75%;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
 }
