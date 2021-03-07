@@ -31,7 +31,7 @@ const SendText = ({updateMessages}) => {
     }
     return (
         <div className={classes.sendText}>
-            <TextField onChange={updateText} style={{width:'100%'}} />
+            <TextField onChange={updateText} value={textInput} style={{width:'100%'}}> </TextField>
             <SendOutlinedIcon onClick={handleSubmit}/>
         </div>
     )
