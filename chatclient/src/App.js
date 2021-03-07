@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from "@material-ui/core/styles";
 import Messages from './components/messagesContainer'
+import SendText from './components/sendText';
 /*
 Simple layout
 Header with room name
@@ -23,8 +24,6 @@ function App() {
             Room Name
           </Toolbar>
         </AppBar>
-
-
         <Messages/>
       </Container>
     </div>

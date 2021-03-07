@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import fakeMessages from '../fakeMessages.json'
+import SendText from './sendText'
 
 const useStyles = makeStyles({
     messageContainer: {
@@ -31,6 +32,7 @@ const Messages = () => {
     return (
         <Paper className={classes.messageContainer}>
             {fakeMessages.map(message => Message(message))}
+            <SendText/>
         </Paper>
     )
 }
