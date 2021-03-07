@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import fakeMessages from '../fakeMessages.json'
 import SendText from './sendText'
+import {useState} from 'react'
 
 const useStyles = makeStyles({
     messageContainer: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles({
   });
 
 
-const Message = (message) => {
+const Message = ({message}) => {
     const classes = useStyles();
     return (
         <div className="message">
@@ -29,10 +30,19 @@ const Message = (message) => {
 
 const Messages = () => {
     const classes = useStyles();
+    const [texts, setTexts] = useState(fakeMessages)
+    const updateMessages = (newText) => {
+        setTexts([...texts, newText])
+        console.log(texts)
+    }
     return (
         <Paper className={classes.messageContainer}>
-            {fakeMessages.map(message => Message(message))}
-            <SendText/>
+            {texts.map(text => {
+                return (
+                    <Message message={text}/>
+                )
+            })}
+            <SendText updateMessages={updateMessages}/>
         </Paper>
     )
 }
