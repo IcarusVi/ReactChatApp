@@ -8,7 +8,7 @@ import Messages from './components/messagesContainer'
 Simple layout
 Header with room name
 Middle will be messages
-Last a textfield to enter text and send button
+Last a text field to enter text and send button
 */
 
 
