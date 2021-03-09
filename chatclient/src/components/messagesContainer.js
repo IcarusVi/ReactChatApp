@@ -1,14 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
 import {io} from "socket.io-client";
 import Paper from '@material-ui/core/Paper';
-import fakeMessages from '../fakeMessages.json'
 import SendText from './sendText'
 import {useState, useEffect, useRef} from 'react'
 import Message from './message';
 
-const endPoint = 'http://localhost:8000'
-let socket;
-
+const endPoint = 'http://localhost:8000';
 
 const useStyles = makeStyles({
     messageContainer: {

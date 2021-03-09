@@ -1,8 +1,11 @@
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
 import Container from '@material-ui/core/Container';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Messages from './components/messagesContainer'
+import CreateRoom from './components/createRoom';
+import ChatRoom from './components/ChatRoom';
 
 /*
 Simple layout
@@ -16,14 +19,16 @@ function App() {
 
   return (
     <div className="App">
-      <Container maxWidth='sm'>
-        <AppBar position={'relative'}>
-          <Toolbar>
-            Room Name
-          </Toolbar>
-        </AppBar>
-        <Messages/>
-      </Container>
+      <Router>
+        <Container maxWidth='sm'>
+          <Route path='/room'>
+            <ChatRoom />
+          </Route>
+          <Route path='/'>
+            <CreateRoom />
+          </Route>
+        </Container>
+      </Router>
     </div>
   );
 }
