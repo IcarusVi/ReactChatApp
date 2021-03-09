@@ -33,12 +33,19 @@ const Messages = () => {
     }, [])
 
     const updateMessages = (newText) => {
+        newText.userId = socketRef.current.id
         socketRef.current.emit('message sent', newText)
     }
     
     return (
         <Paper className={classes.messageContainer}>
             {texts.map(text => {
+                 if(text.userId === socketRef.current.id){
+                    text.user = 'Me';
+                }
+                else{
+                    text.user = 'Other'
+                }
                 return (
                     <Message message={text}/>
                 )
