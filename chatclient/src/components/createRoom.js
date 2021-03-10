@@ -2,12 +2,18 @@ import { TextField } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import {signIn} from '../reducers/userReducer'
 
 
 
 const CreateRoom = () => {
     const [userName, setUserName] = useState('')
     const [roomName, setRoomName] = useState('')
+    const user = useSelector(state => state)
+    const dispatch = useDispatch()
+    const history = useHistory();
 
     const handleChange = (e) => {
         let value = e.target.value;
@@ -20,15 +26,15 @@ const CreateRoom = () => {
     }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async  (e) => {
         e.preventDefault();
         if (roomName === '' || userName === '') {
             console.log('Fill in username and room name')
             return;
         }
         else{
-            console.log(userName)
-            console.log(roomName)
+            await dispatch(signIn(userName))
+            history.push('/room')
         }
 
     }

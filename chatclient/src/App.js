@@ -2,6 +2,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
+  Switch
 } from "react-router-dom";
 import Container from '@material-ui/core/Container';
 import CreateRoom from './components/createRoom';
@@ -21,12 +22,16 @@ function App() {
     <div className="App">
       <Router>
         <Container maxWidth='sm'>
-          <Route path='/room'>
-            <ChatRoom />
-          </Route>
-          <Route path='/'>
-            <CreateRoom />
-          </Route>
+          <Switch>
+            <Route path='/room'>
+              <ChatRoom />
+            </Route>
+            <Route path='/'>
+              <CreateRoom />
+            </Route>
+
+          </Switch>
+
         </Container>
       </Router>
     </div>
