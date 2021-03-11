@@ -3,7 +3,6 @@ import {io} from "socket.io-client";
 import Paper from '@material-ui/core/Paper';
 import SendText from './sendText'
 import {useState, useEffect, useRef} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 
 import Message from './message';
 
@@ -15,7 +14,7 @@ const useStyles = makeStyles({
     }
   });
 
-const Messages = () => {
+const Messages = ({room, user}) => {
     const classes = useStyles();
     const socketRef = useRef();
     
@@ -23,6 +22,10 @@ const Messages = () => {
 
     useEffect(() => {
         socketRef.current = io(endPoint)
+        socketRef.current.emit('join room', {
+            roomName: room,
+            userName: user.userName
+        })
 
         socketRef.current.on('message received', (message) => {
             console.log(message)
@@ -33,6 +36,7 @@ const Messages = () => {
 
     const updateMessages = (newText) => {
         newText.userId = socketRef.current.id
+        newText.room = room;
         socketRef.current.emit('message sent', newText)
     }
     

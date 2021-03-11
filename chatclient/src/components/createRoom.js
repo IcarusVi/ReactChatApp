@@ -2,7 +2,7 @@ import { TextField } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import {signIn} from '../reducers/userReducer'
 
@@ -11,7 +11,6 @@ import {signIn} from '../reducers/userReducer'
 const CreateRoom = () => {
     const [userName, setUserName] = useState('')
     const [roomName, setRoomName] = useState('')
-    const user = useSelector(state => state)
     const dispatch = useDispatch()
     const history = useHistory();
 
@@ -34,7 +33,7 @@ const CreateRoom = () => {
         }
         else{
             await dispatch(signIn(userName))
-            history.push('/room')
+            history.push(`/room/${roomName}`)
         }
 
     }

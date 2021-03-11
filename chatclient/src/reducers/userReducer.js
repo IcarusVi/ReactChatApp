@@ -5,6 +5,8 @@ const userReducer = (state, action) => {
                 ...state,
                 userName: action.data.username
             }
+        default: 
+            return state
     }
 }
 
